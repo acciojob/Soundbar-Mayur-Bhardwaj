@@ -1,42 +1,43 @@
-//your JS code here. If required.
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-  const sounds=["applause","boo","gasp","tada","victory",
-   "wrong","stop"];
+  const sounds = ["applause","boo","gasp","tada","victory","wrong"];
+  const container = document.getElementById("buttons");
 
-  const container=document.createElement("div");
-  container.setAttribute("id","buttons");
-  
-  let currentSound=null;
+  let currentSound = null;
 
-  sounds.forEach((sound)=>{
-      const btn=document.createElement("button");
-      btn.textContent=sound;
-      if(sound==="stop"){
-           btn.setAttribute("class","stop");
-         btn.addEventListener("click",()=>{
-            if(currentSound){
-	           currentSound.pause();
-	           currentSound.currentTime=0;
-		   }
-		 });    
+  // Create sound buttons
+  sounds.forEach((sound) => {
+    const btn = document.createElement("button");
+    btn.innerText = sound;
+    btn.classList.add("btn");
+
+    btn.addEventListener("click", () => {
+
+      // stop previous
+      if (currentSound) {
+        currentSound.pause();
+        currentSound.currentTime = 0;
       }
-      else{
-        btn.setAttribute("class","btn");
 
-		btn.addEventListener("click", () => {
-        // stop previous sound
-        if (currentSound) {
-          currentSound.pause();
-          currentSound.currentTime = 0;
-        }
+      currentSound = new Audio(`./sounds/${sound}.mp3`);
+      currentSound.play();
+    });
 
-        // play new sound
-        currentSound = new Audio(`./sounds/${sound}.mp3`);
-        currentSound.play();
-      });
-	  }
-      container.appendChild(btn);
+    container.appendChild(btn);
   });
-  document.body.appendChild(container);
+
+  // Create STOP button separately
+  const stopBtn = document.createElement("button");
+  stopBtn.innerText = "stop";
+  stopBtn.classList.add("stop");
+
+  stopBtn.addEventListener("click", () => {
+    if (currentSound) {
+      currentSound.pause();
+      currentSound.currentTime = 0;
+    }
+  });
+
+  container.appendChild(stopBtn);
+
 });
