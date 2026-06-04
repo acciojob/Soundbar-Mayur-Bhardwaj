@@ -1,29 +1,12 @@
-body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgb(155, 93, 229);
-      font-family: Arial, sans-serif;
-    }
- #buttons {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-.btn,
-.stop {
-      background-color: rgb(103, 58, 183);
-      color: white;
-      border: none;
-      padding: 25px 45px;
-      font-size: 20px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-.btn:hover,
-.stop:hover {
-      opacity: 0.9;
-    }
+#buttons{
+	display:flex;
+	gap:20px;
+	justify-content:center;
+	align-items:center;
+	background-color:purple;
+	height:300px;
+}
+.btn,.stop{
+	color:white;
+	background-color:violet;
+}
