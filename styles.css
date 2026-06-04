@@ -1,4 +1,4 @@
-#buttons{
+/* #buttons{
 	display:flex;
 	gap:20px;
 	justify-content:center;
@@ -9,4 +9,18 @@
 .btn,.stop{
 	color:white;
 	background-color:violet;
+} */
+#buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    background: purple;
+    height: 300px;
+}
+
+.btn,
+.stop {
+    color: white;
+    background: violet;
 }
